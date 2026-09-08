@@ -5,21 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Friendly, creative sewing classes with Amanda the Maker. Learn practical skills and make something joyful.">
   <title>Amanda the Maker — Sewing Classes</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="canonical" href="https://amandathemaker.net/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Amanda the Maker — Sewing Classes">
+  <meta property="og:description" content="Friendly, creative sewing classes with Amanda. Learn practical skills and make something joyful.">
+  <meta property="og:url" content="https://amandathemaker.net/">
+  <meta property="og:image" content="https://amandathemaker.net/assets/a0.jpeg">
+  <meta property="og:image:alt" content="Two makers showing their finished patchwork tote bags">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amanda the Maker — Sewing Classes">
+  <meta name="twitter:description" content="Friendly, creative sewing classes with Amanda. Learn practical skills and make something joyful.">
+  <meta name="twitter:image" content="https://amandathemaker.net/assets/a0.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Gloock&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="preview-toolbar" aria-label="Preview controls">
-    <button class="preview-switch" type="button" aria-pressed="false">Switch to mobile view</button>
-  </div>
+  <a class="skip-link" href="#top">Skip to content</a>
   <div class="site-preview">
   <header class="wrap nav">
     <a class="brand" href="#top" aria-label="Amanda the Maker, home"><img src="assets/logo.png" alt="Amanda the Maker"></a>
     <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav class="links" aria-label="Main navigation"><a href="#about">About</a><a href="#classes">Classes</a><a href="#contact">Contact</a></nav>
   </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation"><a href="#about">About</a><a href="#classes">Classes</a><a href="#contact">Contact</a></nav>
   <main id="top">
     <section class="hero">
       <div class="wrap"><div class="hero-content reveal">
@@ -77,17 +88,32 @@
     </div></section>
   </main>
   <footer><div class="wrap footer-inner"><a class="brand" href="#top" aria-label="Amanda the Maker, home"><img src="assets/logo.png" alt="Amanda the Maker"></a><small>© <span id="year"></span> Amanda the Maker.</small><div class="social"><a href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Instagram</a><a href="#contact">Class inquiries</a></div></div></footer>
+  <div class="preview-toolbar" aria-label="Display preference">
+    <button class="preview-switch" type="button" aria-pressed="false">Switch to mobile view</button>
+  </div>
   </div>
   <script>
     const previewSwitch=document.querySelector('.preview-switch'),sitePreview=document.querySelector('.site-preview');
-    const setPreviewMode=(mobile,scroll=false)=>{sitePreview.classList.toggle('mobile-preview',mobile);previewSwitch.setAttribute('aria-pressed',mobile);previewSwitch.textContent=mobile?'Switch to desktop view':'Switch to mobile view';if(mobile&&scroll)sitePreview.scrollIntoView({behavior:'smooth',block:'start'});};
-    setPreviewMode(window.matchMedia('(max-width: 800px)').matches);
-    previewSwitch.addEventListener('click',()=>setPreviewMode(!sitePreview.classList.contains('mobile-preview'),true));
+    const mobileViewport=window.matchMedia('(max-width: 800px)');
+    let viewOverride=null;
+    const setPreviewMode=()=>{
+      const mobile=viewOverride ?? mobileViewport.matches;
+      sitePreview.classList.toggle('mobile-preview',mobile);
+      sitePreview.classList.toggle('desktop-preview',!mobile);
+      previewSwitch.setAttribute('aria-pressed',String(mobile));
+      previewSwitch.textContent=mobile?'Switch to desktop view':'Switch to mobile view';
+    };
+    setPreviewMode();
+    mobileViewport.addEventListener('change',setPreviewMode);
+    previewSwitch.addEventListener('click',()=>{
+      viewOverride=!sitePreview.classList.contains('mobile-preview');
+      setPreviewMode();
+    });
     document.querySelectorAll('.mobile-more').forEach(button=>button.addEventListener('click',()=>{const section=button.closest('section'),expanded=section.classList.toggle('mobile-expanded');button.setAttribute('aria-expanded',expanded);button.textContent=expanded?button.dataset.less:button.dataset.more;}));
     const toggle=document.querySelector('.mobile-toggle'),links=document.querySelector('.links');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.textContent=open?'×':'☰'});document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
     document.querySelector('#inquiry-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.success').classList.add('show');e.currentTarget.querySelector('button').textContent='Inquiry received';});
     document.querySelector('#year').textContent=new Date().getFullYear();
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    sitePreview.classList.add('disclosures-ready');
   </script>
 </body>
 </html>
