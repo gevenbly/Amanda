@@ -173,7 +173,7 @@ section { padding: 105px 0; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+.eyebrow::before { content: ""; width: 20px; height: 1px; background: currentColor; }
 
 /* Hero ----------------------------------------------------------- */
 .hero {
