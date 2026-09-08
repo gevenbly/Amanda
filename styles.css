@@ -102,7 +102,7 @@ img { display: block; max-width: 100%; }
 .brand img { width: 270px; height: 112px; object-fit: contain; }
 .nav .brand img { width: min(360px, 72vw); height: auto; }
 .links { display: flex; align-items: center; justify-content: center; gap: 32px; }
-.links a { text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.links a { text-decoration: none; font-size: 1.1rem; font-weight: 600; }
 .mobile-toggle { display: none; border: 0; background: none; font-size: 1.4rem; }
 
 /* Buttons -------------------------------------------------------- */
@@ -123,6 +123,23 @@ img { display: block; max-width: 100%; }
 }
 .button:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(44, 41, 36, 0.17); }
 .button.light { background: transparent; color: var(--ink); }
+.mobile-more {
+  display: none;
+  min-height: 44px;
+  margin: 24px auto 0;
+  padding: 0 18px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--ink);
+  font: 600 0.86rem "DM Sans", sans-serif;
+  cursor: pointer;
+}
+.mobile-more::after { content: "+"; margin-left: 9px; font-size: 1.1rem; line-height: 1; }
+.mobile-more[aria-expanded="true"]::after { content: "−"; }
+.mobile-more.light-on-dark { color: #fff; }
+.mobile-more:hover,
+.mobile-more:focus-visible { background: rgba(71, 127, 172, 0.1); }
 
 /* Typography and shared sections -------------------------------- */
 h1, h2, h3 {
@@ -153,7 +170,7 @@ section { padding: 105px 0; }
 /* Hero ----------------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: 690px;
+  min-height: 620px;
   display: grid;
   align-items: center;
   background-image:
@@ -162,7 +179,7 @@ section { padding: 105px 0; }
   background-size: cover;
   background-position: center 36%;
 }
-.hero-content { max-width: 620px; padding: 90px 0 120px; }
+.hero-content { max-width: 620px; padding: 60px 0 80px; }
 .hero-copy { max-width: 520px; margin-bottom: 34px; color: #554f47; font-size: 1.1rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .trust { display: flex; gap: 22px; margin-top: 36px; color: var(--muted); font-size: 0.84rem; }
@@ -326,26 +343,51 @@ footer { padding: 40px 0; background: var(--ink); color: #ddd5ca; }
   .mobile-toggle { display: block; position: absolute; top: 18px; right: 4px; }
   .links { position: absolute; z-index: 10; top: 100%; left: 0; right: 0; display: none; flex-direction: column; padding: 22px; background: var(--paper); box-shadow: var(--shadow); }
   .links.open { display: flex; }
-  .hero { min-height: 650px; background-image: linear-gradient(90deg, rgba(237, 231, 219, 0.98), rgba(237, 231, 219, 0.76)), url("assets/a0.jpeg"); background-position: 60% center; }
-  .hero-content { padding: 70px 0; }
-  .trust { flex-direction: column; gap: 6px; }
+  .hero { min-height: 540px; background-image: linear-gradient(90deg, rgba(237, 231, 219, 0.98), rgba(237, 231, 219, 0.76)), url("assets/a0.jpeg"); background-position: 60% center; }
+  .hero-content { padding: 48px 0; }
+  .hero h1 { font-size: 2.25rem; line-height: 1.02; text-align: center; }
+  .trust { width: fit-content; margin-right: auto; margin-left: auto; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left; }
   .section-head, .about-grid, .contact-grid { display: block; }
-  .section-head p { margin-top: 18px; }
+  .section-head { text-align: center; }
+  .section-head h2,
+  .section-head p { margin-right: auto; margin-left: auto; }
+  .section-head p { margin-top: 18px; text-align: left; }
+  .about .reveal:not(.maker-photo),
+  .contact-copy { text-align: center; }
+  .about .eyebrow,
+  .contact .eyebrow { justify-content: center; }
+  .about p,
+  .contact-copy > p { margin-right: auto; margin-left: auto; text-align: left; }
+  .about .maker-list,
+  .contact .note { text-align: left; }
+  .about h2 { font-size: 1.95rem; line-height: 1.08; letter-spacing: -0.025em; }
+  .contact h2 { font-size: 1.95rem; line-height: 1.08; letter-spacing: -0.025em; }
+  .classes .section-head h2,
+  .tips .section-head h2 { font-size: 1.9rem; white-space: nowrap; }
   .gallery .section-head h2 { font-size: 1.55rem; }
+  .quote blockquote { font-size: 1.55rem; line-height: 1.28; }
   .cards { grid-template-columns: 1fr; }
   .card { min-height: 340px; }
-  .about-grid { display: flex; flex-direction: column; }
-  .maker-photo { width: 88%; margin: 0 auto 70px; }
-  .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 330px 180px 220px; }
+  .about-grid { display: flex; flex-direction: column; gap: 0; }
+  .maker-photo { width: 76%; margin: 0 auto 12px; }
+  .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; grid-template-rows: none; }
   .photo-grid figure:first-child { grid-column: 1 / 3; grid-row: auto; }
   .video-grid { grid-template-columns: 1fr 1fr; }
   .contact-copy { margin-bottom: 45px; }
+  .mobile-more { display: flex; width: fit-content; margin-right: auto; margin-left: auto; align-items: center; justify-content: center; }
+  .mobile-extra { display: none; }
+  .mobile-expanded .mobile-extra { display: block; }
+  .mobile-expanded .card.mobile-extra { display: flex; }
+  .mobile-expanded form.mobile-extra { display: grid; margin-top: 28px; }
+  .mobile-expanded .reveal.mobile-extra { opacity: 1; transform: none; }
+  .about .mobile-more { margin-right: auto; margin-left: auto; }
+  .contact .mobile-more { margin: 0 auto 28px; }
   form { grid-template-columns: 1fr; }
   .field { grid-column: 1 / -1; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-inner .brand img { width: 230px; }
   .social { justify-content: center; }
-  section { padding: 80px 0; }
+  section { padding: 58px 0; }
 }
 
 @container site (max-width: 480px) {

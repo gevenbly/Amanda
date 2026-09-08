@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Remove the hidden attribute to reinstate the mobile/desktop preview switch. -->
-  <div class="preview-toolbar" aria-label="Preview controls" hidden>
+  <div class="preview-toolbar" aria-label="Preview controls">
     <button class="preview-switch" type="button" aria-pressed="false">Switch to mobile view</button>
   </div>
   <div class="site-preview">
@@ -34,49 +33,57 @@
 
     <section class="about" id="about"><div class="wrap about-grid">
       <div class="maker-photo reveal"><img src="assets/a9.jpg" alt="Amanda smiling in her sewing studio" loading="lazy"></div>
-      <div class="reveal"><p class="eyebrow">Meet Amanda</p><h2>Stitching a More Sustainable Wardrobe.</h2><p>Amanda is an avid sewist and lover of all things creative and sustainable. Her sewing journey began with a simple machine and a vision to upcycle thrifted clothing. As her confidence grew, she began sewing her own clothes with the goal of crafting an entirely handmade wardrobe.</p><p>Her projects give discarded and deadstock fabrics—materials otherwise destined for landfill—a new life. For Amanda, sewing is a way to create beauty, reduce textile waste, and build a more thoughtful relationship with what we wear. It’s her passion to share that love of sewing with the wider community.</p><ul class="maker-list"><li>Former middle-grade teacher</li><li>Toddler mom and passionate sewist</li><li>Sewing instructor at Remainders Creative Reuse in Pasadena</li></ul><a class="button light" href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Follow @amandathemaker</a></div>
+      <div class="reveal"><p class="eyebrow">Meet Amanda</p><h2>Stitching a More Sustainable Wardrobe.</h2><p>Amanda is an avid sewist and lover of all things creative and sustainable. Her sewing journey began with a simple machine and a vision to upcycle thrifted clothing. As her confidence grew, she began sewing her own clothes with the goal of crafting an entirely handmade wardrobe.</p><div class="mobile-extra" id="about-details"><p>Her projects give discarded and deadstock fabrics—materials otherwise destined for landfill—a new life. For Amanda, sewing is a way to create beauty, reduce textile waste, and build a more thoughtful relationship with what we wear. It’s her passion to share that love of sewing with the wider community.</p><ul class="maker-list"><li>Former middle-grade teacher</li><li>Toddler mom and passionate sewist</li><li>Sewing instructor at Remainders Creative Reuse in Pasadena</li></ul><a class="button light" href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Follow @amandathemaker</a></div><button class="mobile-more" type="button" aria-controls="about-details" aria-expanded="false" data-more="Read more about Amanda" data-less="Show less about Amanda">Read more about Amanda</button></div>
     </div></section>
 
     <section class="classes" id="classes"><div class="wrap">
       <div class="section-head reveal"><h2>Upcoming Classes.</h2><p>Whether you’re threading a machine for the first time or ready to sew something you’ll wear, there’s room at the table.</p></div>
-      <div class="cards">
+      <div class="cards" id="class-list">
         <article class="card reveal"><span class="card-number">09/19</span><h3>Hand-Sewn Patchwork Coasters</h3><p>Join Amanda for a fun, easy workshop where you’ll learn basic hand-sewing techniques by making a patchwork coaster from fabric scraps. Amanda will guide you step by step, and no previous sewing experience is required.</p><ul class="details"><li>September 19, 2026</li><li>All materials provided</li><li>Take home a basic sewing kit to make another coaster</li></ul><a href="https://www.blackcatfables.com/products/09-19-2026-hand-sewn-patchwork-coasters" target="_blank" rel="noopener">View workshop &amp; register →</a></article>
-        <article class="card reveal"><span class="card-number">TBD</span><h3>New Workshop Coming Soon</h3><p>Amanda is planning another creative sewing workshop. Full project and registration details will be added once they’re confirmed.</p><ul class="details"><li>Date: To be announced</li><li>Project: To be announced</li><li>Registration: Coming soon</li></ul><a href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Follow for announcements →</a></article>
-        <article class="card reveal"><span class="card-number">TBD</span><h3>New Workshop Coming Soon</h3><p>Another class is in the works. Check back soon for the project, date, location, and information about how to join.</p><ul class="details"><li>Date: To be announced</li><li>Project: To be announced</li><li>Registration: Coming soon</li></ul><a href="#contact">Ask about future classes →</a></article>
+        <article class="card reveal mobile-extra"><span class="card-number">TBD</span><h3>New Workshop Coming Soon</h3><p>Amanda is planning another creative sewing workshop. Full project and registration details will be added once they’re confirmed.</p><ul class="details"><li>Date: To be announced</li><li>Project: To be announced</li><li>Registration: Coming soon</li></ul><a href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Follow for announcements →</a></article>
+        <article class="card reveal mobile-extra"><span class="card-number">TBD</span><h3>New Workshop Coming Soon</h3><p>Another class is in the works. Check back soon for the project, date, location, and information about how to join.</p><ul class="details"><li>Date: To be announced</li><li>Project: To be announced</li><li>Registration: Coming soon</li></ul><a href="#contact">Ask about future classes →</a></article>
       </div>
+      <button class="mobile-more" type="button" aria-controls="class-list" aria-expanded="false" data-more="See future workshops" data-less="Hide future workshops">See future workshops</button>
     </div></section>
 
     <section class="gallery" id="makes"><div class="wrap">
-      <div class="section-head reveal"><h2>Play with Color. Learn by Making.</h2><p></p></div>
-      <div class="photo-grid reveal">
+      <div class="section-head reveal"><h2>Learn by Making.</h2><p></p></div>
+      <div class="photo-grid reveal" id="make-gallery">
         <figure><img src="assets/a8.jpg" alt="Amanda wearing a handmade crane-print dress" loading="lazy"><figcaption>Made to wear</figcaption></figure>
         <figure><img src="assets/a1.jpg" alt="Colorful fabric scraps ready for sewing" loading="lazy"><figcaption>Play with print</figcaption></figure>
         <figure><img src="assets/a6.jpg" alt="Handmade dress in a colorful floral print" loading="lazy"><figcaption>One-of-a-kind</figcaption></figure>
-        <figure><img src="assets/a4.jpg" alt="Amanda wearing a colorful handmade wrap dress" loading="lazy"><figcaption>Bold by design</figcaption></figure>
-        <figure><img src="assets/a12.jpg" alt="Amanda wearing a handmade navy checked dress" loading="lazy"><figcaption>From Fabric to Favorite</figcaption></figure>
+        <figure class="mobile-extra"><img src="assets/a4.jpg" alt="Amanda wearing a colorful handmade wrap dress" loading="lazy"><figcaption>Bold by design</figcaption></figure>
+        <figure class="mobile-extra"><img src="assets/a12.jpg" alt="Amanda wearing a handmade navy checked dress" loading="lazy"><figcaption>From Fabric to Favorite</figcaption></figure>
       </div>
+      <button class="mobile-more light-on-dark" type="button" aria-controls="make-gallery" aria-expanded="false" data-more="See more makes" data-less="Show fewer makes">See more makes</button>
     </div></section>
 
     <section class="tips" id="tips"><div class="wrap">
       <div class="section-head reveal"><h2>Sewing Tips.</h2><p></p></div>
-      <div class="video-grid reveal">
+      <div class="video-grid reveal" id="sewing-tip-list">
         <figure class="video-card"><video controls playsinline preload="metadata" aria-label="Amanda explains how to adjust a sewing-machine stitch"><source src="assets/v0.mp4" type="video/mp4">Your browser does not support this video.</video><figcaption><strong>Know your stitches</strong><span>Small adjustments, clearly explained.</span></figcaption></figure>
-        <figure class="video-card"><video controls playsinline preload="metadata" aria-label="Amanda demonstrates a sewing-machine technique"><source src="assets/v1.mp4" type="video/mp4">Your browser does not support this video.</video><figcaption><strong>See how it works</strong><span>Close-up demos you can actually follow.</span></figcaption></figure>
-        <figure class="video-card"><video controls playsinline preload="metadata" aria-label="Amanda demonstrates making bias tape"><source src="assets/v3.mp4" type="video/mp4">Your browser does not support this video.</video><figcaption><strong>Choose your method</strong><span>Thoughtful techniques, without the fuss.</span></figcaption></figure>
+        <figure class="video-card mobile-extra"><video controls playsinline preload="metadata" aria-label="Amanda demonstrates a sewing-machine technique"><source src="assets/v1.mp4" type="video/mp4">Your browser does not support this video.</video><figcaption><strong>See how it works</strong><span>Close-up demos you can actually follow.</span></figcaption></figure>
+        <figure class="video-card mobile-extra"><video controls playsinline preload="metadata" aria-label="Amanda demonstrates making bias tape"><source src="assets/v3.mp4" type="video/mp4">Your browser does not support this video.</video><figcaption><strong>Choose your method</strong><span>Thoughtful techniques, without the fuss.</span></figcaption></figure>
       </div>
+      <button class="mobile-more" type="button" aria-controls="sewing-tip-list" aria-expanded="false" data-more="See all sewing tips" data-less="Show one sewing tip">See all sewing tips</button>
     </div></section>
 
     <section class="quote"><div class="wrap reveal"><blockquote>Learn how your machine works, and you’ll know how to solve the little problems when they come up.</blockquote><cite></cite></div></section>
 
     <section class="contact" id="contact"><div class="wrap contact-grid">
       <div class="contact-copy reveal"><p class="eyebrow">Let’s make something</p><h2>Ready to give it a go?</h2><p>Tell Amanda a little about what you’d like to learn. She’ll help you find the right place to start and share upcoming options.</p><div class="note"><strong>Prefer to connect on Instagram?</strong>Send a message to <a href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">@amandathemaker</a>.</div></div>
-      <form class="reveal" id="inquiry-form"><div class="field"><label for="name">YOUR NAME</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="email">EMAIL ADDRESS</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field full"><label for="interest">I’M INTERESTED IN</label><select id="interest" name="interest"><option>Hand-Sewn Patchwork Coasters — September 19</option><option>Future workshop announcements</option><option>General sewing-class question</option><option>I’m not sure yet</option></select></div><div class="field full"><label for="message">ANYTHING ELSE?</label><textarea id="message" name="message" placeholder="Tell Amanda about your experience, preferred days, or what you'd love to make."></textarea></div><button class="button" type="submit">Send my class inquiry</button><div class="success" role="status">Thanks! Your message is ready to send. Connect this form to your preferred email service to receive inquiries.</div></form>
+      <button class="mobile-more" type="button" aria-controls="inquiry-form" aria-expanded="false" data-more="Open contact form" data-less="Close contact form">Open contact form</button>
+      <form class="reveal mobile-extra" id="inquiry-form"><div class="field"><label for="name">YOUR NAME</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="email">EMAIL ADDRESS</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field full"><label for="interest">I’M INTERESTED IN</label><select id="interest" name="interest"><option>Hand-Sewn Patchwork Coasters — September 19</option><option>Future workshop announcements</option><option>General sewing-class question</option><option>I’m not sure yet</option></select></div><div class="field full"><label for="message">ANYTHING ELSE?</label><textarea id="message" name="message" placeholder="Tell Amanda about your experience, preferred days, or what you'd love to make."></textarea></div><button class="button" type="submit">Send my class inquiry</button><div class="success" role="status">Thanks! Your message is ready to send. Connect this form to your preferred email service to receive inquiries.</div></form>
     </div></section>
   </main>
   <footer><div class="wrap footer-inner"><a class="brand" href="#top" aria-label="Amanda the Maker, home"><img src="assets/logo.png" alt="Amanda the Maker"></a><small>© <span id="year"></span> Amanda the Maker.</small><div class="social"><a href="https://www.instagram.com/amandathemaker/" target="_blank" rel="noopener">Instagram</a><a href="#contact">Class inquiries</a></div></div></footer>
   </div>
   <script>
-    const previewSwitch=document.querySelector('.preview-switch'),sitePreview=document.querySelector('.site-preview');previewSwitch.addEventListener('click',()=>{const mobile=sitePreview.classList.toggle('mobile-preview');previewSwitch.setAttribute('aria-pressed',mobile);previewSwitch.textContent=mobile?'Switch to desktop view':'Switch to mobile view';if(mobile)sitePreview.scrollIntoView({behavior:'smooth',block:'start'});});
+    const previewSwitch=document.querySelector('.preview-switch'),sitePreview=document.querySelector('.site-preview');
+    const setPreviewMode=(mobile,scroll=false)=>{sitePreview.classList.toggle('mobile-preview',mobile);previewSwitch.setAttribute('aria-pressed',mobile);previewSwitch.textContent=mobile?'Switch to desktop view':'Switch to mobile view';if(mobile&&scroll)sitePreview.scrollIntoView({behavior:'smooth',block:'start'});};
+    setPreviewMode(window.matchMedia('(max-width: 800px)').matches);
+    previewSwitch.addEventListener('click',()=>setPreviewMode(!sitePreview.classList.contains('mobile-preview'),true));
+    document.querySelectorAll('.mobile-more').forEach(button=>button.addEventListener('click',()=>{const section=button.closest('section'),expanded=section.classList.toggle('mobile-expanded');button.setAttribute('aria-expanded',expanded);button.textContent=expanded?button.dataset.less:button.dataset.more;}));
     const toggle=document.querySelector('.mobile-toggle'),links=document.querySelector('.links');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.textContent=open?'×':'☰'});document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
     document.querySelector('#inquiry-form').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.querySelector('.success').classList.add('show');e.currentTarget.querySelector('button').textContent='Inquiry received';});
     document.querySelector('#year').textContent=new Date().getFullYear();
