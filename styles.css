@@ -233,7 +233,6 @@ section { padding: 105px 0; }
 .gallery .section-head h2 {
   max-width: none;
   white-space: normal;
-  font-size: clamp(2rem, 3.4vw, 3.4rem);
 }
 .gallery .section-head p { color: #d8e0e8; }
 .photo-grid { display: grid; grid-template-columns: 1.25fr 0.75fr 0.75fr; grid-template-rows: 240px 240px; gap: 14px; }
@@ -274,17 +273,6 @@ section { padding: 105px 0; }
 .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 9vw; }
 .maker-photo { position: relative; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--shadow); }
 .maker-photo img { width: 100%; height: 100%; object-fit: cover; }
-.maker-photo::after {
-  content: "Made by Amanda";
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  padding: 12px 18px;
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  font: 1.1rem "Gloock", serif;
-}
 .about h2 { font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: -0.04em; }
 .about p { max-width: 560px; color: var(--muted); }
 .maker-list { margin: 32px 0; padding: 0; list-style: none; }
@@ -343,6 +331,13 @@ footer { padding: 40px 0; background: var(--ink); color: #ddd5ca; }
 .reveal.visible { opacity: 1; transform: none; }
 
 /* Responsive layout --------------------------------------------- */
+@container site (min-width: 801px) {
+  h1 { font-size: clamp(2.2176rem, 4.4352vw, 4.2768rem); }
+  .section-head h2 { font-size: clamp(1.98rem, 3.96vw, 3.564rem); }
+  .about h2 { font-size: clamp(2.2176rem, 3.96vw, 3.8016rem); }
+  .contact h2 { font-size: clamp(2.1384rem, 3.96vw, 3.8016rem); }
+}
+
 @container site (max-width: 800px) {
   .wrap { width: min(100% - 28px, 1160px); }
   .nav { width: 100%; padding: 6px 0 12px; }
@@ -374,8 +369,8 @@ footer { padding: 40px 0; background: var(--ink); color: #ddd5ca; }
   .about h2 { font-size: 1.95rem; line-height: 1.08; letter-spacing: -0.025em; }
   .contact h2 { font-size: 1.95rem; line-height: 1.08; letter-spacing: -0.025em; }
   .classes .section-head h2,
+  .gallery .section-head h2,
   .tips .section-head h2 { font-size: 1.9rem; white-space: normal; }
-  .gallery .section-head h2 { font-size: 1.55rem; }
   .quote blockquote { font-size: 1.55rem; line-height: 1.28; }
   .cards { grid-template-columns: 1fr; }
   .card { min-height: 340px; }
